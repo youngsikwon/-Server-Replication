@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="inverter">
+
+	<!-- 인버터 리스트 -->
+	<select id="inverterList"
+		resultType="com.example.spring03.inverter.dto.inverterDTO">
+		select * from inverter
+	</select>
+	<!-- 등록 -->
+	<insert id="inverter_insert">
+		insert into inverter(
+		t_group_id,
+		inverter_id,
+		inverter_model,
+		inverter_capacity,
+		inverter_manager,
+		inverter_username,
+		inverter_owner,
+		inverter_builder,
+		inverter_phone,
+		history
+	)
+	values(
+		#{t_group_id},
+		#{inverter_id},
+		#{inverter_model},
+		#{inverter_capacity},
+		#{inverter_manager},
+		#{inverter_username},
+		#{inverter_owner},
+		#{inverter_builder},
+		#{inverter_phone},
+		#{history}
+		)
+	</insert>
+	<!-- 상세보기 -->
+	<select id="viewInverter"
+		resultType="com.example.spring03.inverter.dto.inverterDTO">
+   select 
+		inverter_idx,
+		inverter_id,
+		inverter_name,
+		inverter_model,
+		inverter_owner,
+		inverter_builder,
+		inverter_capacity,
+		inverter_manager,
+		inverter_completion_date,
+		inverter_reg_date,
+		inverter_install_date,
+		inverter_phone,
+		history
+		from inverter
+		where inverter_idx = #{inverter_idx}
+	</select>
+	<update id="update">
+		update inverter
+		set
+		inverter_name 		= #{inverter_name},
+		inverter_model 		= #{inverter_model},
+		inverter_capacity 	= #{inverter_capacity},
+		inverter_builder 	= #{inverter_builder},
+		inverter_manager 	= #{inverter_manager},
+		inverter_owner 		= #{inverter_owner},
+		inverter_phone 		= #{inverter_phone}
+		where 
+		inverter_id = #{inverter_id}
+		
+	</update>
+	<delete id="delete" parameterType="int" statementType="PREPARED">
+		delete from inverter
+		where inverter_idx = #{inverter_idx}
+	</delete>
+
+	<select id="inverter_group_choice"
+		resultType="com.example.spring03.inverter.dto.inverterDTO">
+		select t_group_id, t_group_name from t_group
+	</select>
+	
+	
+	<select id="inverter_Check" resultType="com.example.spring03.inverter.dto.inverterDTO">
+	select inverter_idx from inverter
+	where inverter_idx =#{inverter_idx}
+	</select>
+	
+	<select id="t_group_Check" resultType="com.example.spring03.inverter.dto.inverterDTO">
+	select t_group_id from inverter
+	where t_group_id =#{t_group_id}
+	</select>
+	
+	<delete id="">
+	delete from inverter
+	where inverter_id = #{inverter_id}
+	and  t_group_id = #{t_group_id}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="group">
+
+	<select id="select"
+		resultType="com.example.spring03.group.dto.groupDTO">
+		select
+		t_group_id,
+		t_group_name,
+		t_group_addr,
+		t_group_manager,
+		t_group_builder,
+		t_group_owner,
+		t_group_phone,
+		t_group_reg_date,
+		tracker_cnt,
+		inverter_cnt
+		from t_group
+	</select>
+	<!-- 군집 상세보기 들어갈 것입니다. -->
+	<select id="group_view"
+		resultType="com.example.spring03.group.dto.groupDTO">
+		select
+		t_group_id,
+		t_group_name,
+		t_group_builder,
+		t_group_owner,
+		t_group_phone,
+		t_group_email,
+		t_group_manager,
+		t_group_username,
+		t_group_ip,
+		t_group_addr,
+		t_group_addr2,
+		history
+		from t_group
+		where t_group_id =
+		#{t_group_id}
+	</select>
+
+	<delete id="delete" parameterType="int" statementType="PREPARED">
+		delete
+		from t_group
+		where t_group_id = #{t_group_id}
+	</delete>
+
+	<!-- 군집 등록을 할 것입니다. -->
+	<insert id="insert" parameterType="com.example.spring03.group.dto.groupDTO">
+insert into t_group(
+		t_group_id,
+		t_group_name,
+		t_group_builder,
+		t_group_owner,
+		t_group_phone,
+		t_group_email,
+		t_group_manager,
+		t_group_username,
+		t_group_ip,
+		t_group_addr,
+		t_group_addr2,
+		history
+		)
+values(
+		#{t_group_id},
+		#{t_group_name}, 
+		#{t_group_builder}, 
+		#{t_group_owner}, 
+		#{t_group_phone},
+		#{t_group_email},
+		#{t_group_manager},
+		#{t_group_username},
+		#{t_group_ip},
+		#{t_group_addr},
+		#{t_group_addr2},
+		#{history}
+				)
+	</insert>
+
+	<update id="update">
+	update t_group
+		set                 
+		t_group_name      = #{t_group_name} ,
+		t_group_builder   = #{t_group_builder} ,
+		t_group_owner     = #{t_group_owner} ,
+		t_group_phone     = #{t_group_phone} ,
+		t_group_email     = #{t_group_email} ,
+		t_group_manager   = #{t_group_manager} ,
+		t_group_username  = #{t_group_username} ,
+		t_group_ip        = #{t_group_ip} ,
+		t_group_addr      = #{t_group_addr} ,
+		t_group_addr2     = #{t_group_addr2} ,
+		history           = #{history}
+		where t_group_id  = #{t_group_id}
+	</update>
+	
+	<select id="IDCheck" resultType="com.example.spring03.group.dto.groupDTO" >
+		select t_group_id  
+		from t_group
+	where t_group_id = #{t_group_id}
+	</select>
+		<select id="inverter_group_choice"
+		resultType="com.example.spring03.group.dto.groupDTO">
+		SELECT tracker_id FROM t_tracker;
+	</select>
+	
+	<!-- 제약조건에 걸릴 시 Fail 되게 만들기 -->
+	<select id="t_group_count" resultType="int">
+	select count(*) from t_group where t_group_id=#{t_group_id}
+	</select>
+	
+	<select id="IdChek" resultType="com.example.spring03.group.dto.groupDTO">
+	select COUNT(*) from t_group
+	where 
+	t_group_id = #{t_group_id}
+	
+	</select>
+	<select id="checkDuplicationId" parameterType="String" resultType="integer">
+		select count(*) as t_group_id From t_group 
+		where t_group_id = #{t_group_id}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

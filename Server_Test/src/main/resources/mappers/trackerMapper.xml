@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="tracker">
+
+	<select id="select"
+		resultType="com.example.spring03.tracker.dto.trackerDTO">
+		select
+		*
+		from
+		t_tracker
+	</select>
+	<select id="view"
+		resultType="com.example.spring03.tracker.dto.trackerDTO">
+select
+		tracker_idx,
+		t_group_id,
+		tracker_id,
+		tracker_model,
+		tracker_capacity,
+		tracker_builder,
+		tracker_manager,
+		tracker_owner,
+		tracker_phone,
+		history,
+		tracker_reg_date
+		from t_tracker
+		where tracker_idx = #{tracker_idx}
+	</select>
+
+	<delete id="delete" parameterType="int" statementType="PREPARED">
+		delete from t_tracker
+		where tracker_idx = #{tracker_idx}
+	</delete>
+	<update id="update"> 
+			update t_tracker
+		set
+		tracker_name 	     = #{tracker_name},                
+		tracker_model        = #{tracker_model},     
+		tracker_capacity     = #{tracker_capacity},  
+		tracker_builder      = #{tracker_builder},   
+		tracker_manager      = #{tracker_manager},   
+		tracker_owner        = #{tracker_owner},     
+		tracker_phone        = #{tracker_phone},     
+		history              = #{history}     
+	where tracker_id 		 = #{tracker_id}
+	</update>
+
+
+	<insert id="tracker_insert">
+	insert into t_tracker(
+		t_group_id,
+		tracker_id,
+		tracker_model,
+		tracker_capacity,
+		tracker_builder,
+		tracker_manager,
+		tracker_owner,
+		tracker_phone,
+		history
+		)
+		values(
+		#{t_group_id},
+		#{tracker_id},
+		#{tracker_model},
+		#{tracker_capacity},
+		#{tracker_builder},
+		#{tracker_manager},
+		#{tracker_owner},
+		#{tracker_phone},
+		#{history}
+		)
+	</insert>
+
+	<select id="tracker_group_choice"
+		resultType="com.example.spring03.tracker.dto.trackerDTO">
+		select t_group_id, t_group_name from t_group
+	</select>
+
+	<select id="t_tracker"
+		resultType="com.example.spring03.tracker.dto.trackerDTO">
+		select tracker_id from t_tracker
+		where tracker_idx =#{tracker_idx}
+	</select>
+
+
+	<!-- 아이디 중복 체크 -->
+	<select id="Tracker_Idcheck" parameterType="HashMap"
+		resultType="HashMap">
+		<![CDATA[
+		select count(Tracker_id) as Tracker_id
+		from t_tracker 
+		where Tracker_id = #{Tracker_id}
+		]]>
+	</select>
+
+
+	<!-- 인버터 리스트 뿌리기 -->
+	<select id="Add_Inverter"
+		resultType="com.example.spring03.tracker.dto.trackerDTO">
+		select inverter_idx, inverter_id from inverter
+		where t_group_id = #{t_group_id}
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

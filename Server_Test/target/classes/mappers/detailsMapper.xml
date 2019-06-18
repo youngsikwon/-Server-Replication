@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="details">
+
+	<select id="details_list"
+		resultType="com.example.spring03.details.dto.DetailsDTO">
+		select
+		t_group_id, t_group_name, t_group_capacity,
+		t_group_addr, t_group_ip
+		from t_group
+	</select>
+	<!-- 발전량 보여주기 -->
+	<select id="view"
+		resultType="com.example.spring03.details.dto.DetailsDTO">
+		select
+		t_group_id,
+		t_group_name,
+		t_group_manager
+		from t_group 
+		where t_group_id = #{t_group_id}
+	</select>
+
+	<!-- 날씨 정보 보여주기 -->
+	<select id="group_weather"
+		resultType="com.example.spring03.details.dto.DetailsDTO">
+		select
+		Area_code,
+		area_name,
+		weather_t_min,
+		weather_t_max,
+		weather_finedust_concentration,
+		weather_ultrafinedust_concentration,
+		weather_ozone_concentration
+		from group_weather WHERE (SELECT
+		t_group_addr FROM t_group WHERE
+		t_group_id
+		= #{t_group_id}) LIKE CONCAT('%',Area_Name,'%')
+	   order by Weather_Date desc limit 1
+	</select>
+
+	<!-- 센서 데이터 정보 -->
+	<select id="sensordate"
+		resultType="com.example.spring03.details.dto.DetailsDTO">
+select
+			ifnull(sensor_data_module_temp, "-") as sensor_data_module_temp,
+			ifnull(sensor_data_ambient_temp,"-") as sensor_data_ambient_temp,
+			ifnull(sensor_data_horizontal_idt, "-" ) as sensor_data_horizontal_idt, 
+			ifnull(sensor_data_slope_idt, "-") as sensor_data_slope_idt
+		from sensor_data 
+   where t_group_id = #{t_group_id}
+        order by sensor_data_date desc limit 1
+
+	</select>
+	<!-- 알람 정보 -->
+	<select id="t_alarm"
+		resultType="com.example.spring03.details.dto.DetailsDTO">
+		select
+		a.t_group_id,
+		b.alarm_type,
+		b.alarm_grade,
+		b.alarm_status,
+		b.IS_Clear,
+		b.Alarm_Upt_Data
+		from t_group as a
+		inner join
+		t_alarm as b
+		on
+		a.t_group_id = b.alarm_idx
+		where a.t_group_id =
+		#{t_group_id}
+	</select>
+	<!--전일 발전량 -->
+	<select id="inverter_date" 	resultType="com.example.spring03.details.dto.DetailsDTO">
+	<![CDATA[
+select 
+t_group_id,
+ifnull(sum(inverter_data_output),0) as inverter_data_output
+from inverter_data
+where Inverter_Data_date >= DATE_SUB(CURDATE(), INTERVAL 1 DAY) 
+and 
+Inverter_Data_date < CURDATE()
+and
+t_group_id = 1
+]]>
+	</select>
+	
+	<!-- 금일 발전량  -->
+	<select id="inverter_today" resultType="com.example.spring03.details.dto.DetailsDTO">
+	<![CDATA[
+select 
+t_group_id,
+ifnull(sum(inverter_data_output),0) as inverter_data_output
+from inverter_data
+where inverter_data_date >= CURDATE() 
+and
+t_group_id = #{t_group_id}
+]]>
+	
+	</select>
+	
+	<!-- 트래커 제어 _  -->
+	<select id="tracker"
+		resultType="com.example.spring03.details.dto.DetailsDTO">
+		select
+		a.t_group_id,
+		b.tracker_id
+		from t_group as a
+		inner join
+		t_tracker as b
+		on
+		a.t_group_id = b.Tracker_IDx
+		where a.t_group_id =
+		#{t_group_id}
+	</select>
+	<!-- 구글 차트 그래프 -->
+	<select id="googleChart"
+		resultType="com.example.spring03.details.dto.DetailsDTO">
+		select
+		a.t_group_id,
+		b.inverter_data_accu_energy
+		from t_group as a
+		inner join inverter_data as b
+		on
+		a.t_group_id = b.inverter_data_idx
+		where a.t_group_id =#{t_group_id}
+	</select>
+	
+	<!--누적, 현재발전량을 나타내는 쿼리입니다. -->
+	<select id="total_data1" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select 
+sum(format(inverter_data_accu_energy,2)) as inverter_data_accu_energy  ,
+sum(format(inverter_data_output, 2)) as inverter_data_output
+from inverter_data
+where t_group_id = #{t_group_id}
+	</select>
+	<!--현재발전량 을 나타내는 쿼리입니다. -->
+	<select id="total_data" resultType="com.example.spring03.details.dto.DetailsDTO">
+	<![CDATA[
+select 
+ifnull(sum(inverter_data_output),0) as inverter_data_output
+from inverter_data
+where Inverter_Data_date > DATE_ADD(now(), INTERVAL -5 minute) 
+and t_group_id = #{t_group_id}
+]]>
+	</select>
+	<!-- 누적 발전량 -->
+	<select id="Cumulative_power_generation" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select
+ifnull(sum(Inverter_Data_Accu_Energy),0) as Inverter_Data_Accu_Energy
+from inverter_data
+where t_group_id = #{t_group_id} 
+	</select>
+	
+	<select id="group_id" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select t_group_id from t_group
+where t_group_id = #{t_group_id}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 유저 정보 들어갑니다. -->
+	<select id="User_Details" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select 
+	user_id,
+    t_group_id
+ from user_t_g
+ where user_id = #{user_id}
+	</select>
+	
+	<!-- 유저 뷰 -->
+	<select id="User_View" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select 
+	t_group_id, 
+    t_group_name, 
+    t_group_capacity, 
+    t_group_email, 
+    t_group_ip 
+    from t_group 
+    where t_group_id = #{t_group_id}
+	</select>
+	
+	<!-- 군집 테이블 주소 Addr, addr2 -->
+	<select id="Addr"
+		resultType="com.example.spring03.details.dto.DetailsDTO">
+		select t_group_addr, t_group_addr2 from t_group
+		where
+		t_group_id = #{t_group_id}
+
+	</select>
+	
+	
+	
+	
+</mapper>
