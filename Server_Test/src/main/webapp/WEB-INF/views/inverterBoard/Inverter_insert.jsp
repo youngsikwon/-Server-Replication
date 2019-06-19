@@ -179,10 +179,6 @@
     						</div>
     				
     						
-    				 <div class="form-group col-md-6">
-      					<label for="inputEmail4"><spring:message code="inverter.a7" text="defaul text"></spring:message></label>
-      					<input name="inverter_username" id="inverter_username" class="form-control" required="required" placeholder="관리인"   type="text">
-    						</div>
     						
     				<div class="form-group col-md-6">
       					<label for="inputEmail4"><spring:message code="inverter.a8" text="defaul text"></spring:message></label>

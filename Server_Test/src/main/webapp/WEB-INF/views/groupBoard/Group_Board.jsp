@@ -144,8 +144,8 @@
                            <td><input type="checkbox" id="checkall" /></td>
                          <th align="center" style="padding-left: 30px;"><spring:message code="part.E1" text="default text"></spring:message></th>
                           <th align="center"style="padding-left: 30px;"><spring:message code="part.E2" text="default text"></spring:message></th>
-                          <th align="center" style="padding-left: 30px;"><spring:message code="part.E3" text="default text"></spring:message></th>
-                          <th align="center" style="padding-left: 30px;"><spring:message code="part.E4" text="default text"></spring:message></th>
+                          <th align="center" style="padding-left:30px;"><spring:message code="part.E3" text="default text"></spring:message></th>
+                          <th align="center" style="padding-left:30px;"><spring:message code="part.E4" text="default text"></spring:message></th>
                           <th align="center"style="padding-left: 30px;"><spring:message code="part.E5" text="default text"></spring:message></th>
                           <th align="center"style="padding-left: 30px;"><spring:message code="part.E6" text="default text"></spring:message></th>
                           <th align="center"style="padding-left: 30px;"><spring:message code="part.E7" text="default text"></spring:message></th>

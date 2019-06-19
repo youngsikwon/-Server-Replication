@@ -104,6 +104,15 @@ select
 		select inverter_idx, inverter_id from inverter
 		where t_group_id = #{t_group_id}
 	</select>
+	
+	<select id="User_tracker" resultType="com.example.spring03.tracker.dto.trackerDTO">
+	select * from 
+t_tracker
+where 
+	(select Group_name from user 
+where user_id = 'test') 
+	like concat('%',Tracker_Name,'%') limit 1;
+	</select>
 
 </mapper>
 

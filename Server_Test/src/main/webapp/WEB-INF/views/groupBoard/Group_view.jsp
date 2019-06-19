@@ -160,16 +160,16 @@
     						</div>
     						
     					
-    					        	<div class="form-group col-md-12">
-                            		<label style="display: block;" ><spring:message code="group.b5" text="defaul text"></spring:message></label>
-                            		<input class="form-control" style="width: 40%; display: inline;" 
-                            		placeholder="우편번호" name="signUpUserPostNo" id="signUpUserPostNo" type="text" readonly="readonly" >
-                            		<button type="button" class="btn btn-default" onclick="execPostCode();" style="margin-bottom: 5px;">
+    			  <div class="form-group col-md-12">
+                       <label style="display: block;" ><spring:message code="group.b5" text="defaul text"></spring:message></label>
+                       <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="signUpUserPostNo" id="signUpUserPostNo" type="text" readonly="readonly" >
+                       <button type="button" class="btn btn-default" onclick="execPostCode();" style="margin-bottom: 5px;">
                             		<i class="fa fa-search"></i> 우편번호 찾기</button>
                             	</div>
-                            	<div class="form-group col-md-4">
-                            	<label for="inputEmail4"><spring:message code="group.b6" text="defaul text"></spring:message></label>
-                            		<input class="form-control"  style="top: 5px;" placeholder="도로명 주소" name="t_group_addr" 
+                            	
+                  <div class="form-group col-md-4">
+                        <label for="inputEmail4"><spring:message code="group.b6" text="defaul text"></spring:message></label>
+                        <input class="form-control"  style="top: 5px;" placeholder="도로명 주소" name="t_group_addr" 
                             		id="signUpUserCompanyAddress" type="text"  
                             		value="${dto.t_group_addr}" />
                             	</div>
@@ -266,7 +266,7 @@
 	                
 	                
 	                $("[name=signUpUserPostNo]").val(data.zonecode);
-	                $("[name=user_addr]").val(fullRoadAddr);
+	                $("[name=t_group_addr]").val(fullRoadAddr);
 	                
 	                /* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
 	                document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;

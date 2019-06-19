@@ -62,7 +62,9 @@ insert into t_group(
 		t_group_ip,
 		t_group_addr,
 		t_group_addr2,
-		history
+		history,
+		tracker_cnt,
+		inverter_cnt
 		)
 values(
 		#{t_group_id},
@@ -76,7 +78,9 @@ values(
 		#{t_group_ip},
 		#{t_group_addr},
 		#{t_group_addr2},
-		#{history}
+		#{history},
+		0,
+		0
 				)
 	</insert>
 
@@ -122,6 +126,17 @@ values(
 		select count(*) as t_group_id From t_group 
 		where t_group_id = #{t_group_id}
 	</select>
+	
+	<!-- 일반 유저 -->
+	<select id="User_group" resultType="com.example.spring03.tracker.dto.trackerDTO">
+select * from 
+t_group
+where 
+	(select Group_name from user 
+where user_id = 'test') 
+	like concat('%',t_group_name,'%') limit 1;
+	</select>
+	
 </mapper>
 
 

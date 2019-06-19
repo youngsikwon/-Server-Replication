@@ -164,6 +164,7 @@
                           <input  class="form-control" type="text" name="inverter_manager" id="inverter_manager"
                           value="${dto.inverter_manager}">
                       </div> 
+                      
                       <div class="form-group col-md-6">
                          <label for="inputEmail4"><spring:message code="inverter.b7" text="defaul text"></spring:message></label>
                           <input  class="form-control" type="text" name="inverter_owner" id="inverter_owner"

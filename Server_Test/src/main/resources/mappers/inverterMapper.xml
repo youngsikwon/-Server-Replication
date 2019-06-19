@@ -67,7 +67,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		inverter_builder 	= #{inverter_builder},
 		inverter_manager 	= #{inverter_manager},
 		inverter_owner 		= #{inverter_owner},
-		inverter_phone 		= #{inverter_phone}
+		inverter_phone 		= #{inverter_phone},
+		history             = #{history}
 		where 
 		inverter_id = #{inverter_id}
 		
@@ -93,11 +94,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	where t_group_id =#{t_group_id}
 	</select>
 	
-	<delete id="">
-	delete from inverter
-	where inverter_id = #{inverter_id}
-	and  t_group_id = #{t_group_id}
-	</delete>
+	<!-- 일반 유저 -->
+		<select id="User_inverter" resultType="com.example.spring03.tracker.dto.trackerDTO">
+select * from 
+inverter
+where 
+	(select Group_name from user 
+where user_id = 'test') 
+	like concat('%',Inverter_name,'%') limit 1;
+	</select>
+
 </mapper>
 
 

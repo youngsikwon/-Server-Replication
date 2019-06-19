@@ -144,25 +144,25 @@
                       </div>
     						
     			  <div class="form-group col-md-6">
-                         <label for="inputEmail4"><spring:message code="tracker.b4" text="defaul text"></spring:message></label>
+                         <label for="inputEmail4"><spring:message code="tracker.b3" text="defaul text"></spring:message></label>
                           <input  class="form-control" type="text"  class="form-control"  name="tracker_capacity" id="tracker_capacity"
                           value="${dto.tracker_capacity}">
                       </div>
     						
                <div class="form-group col-md-6">
-                        <label for="inputEmail4"><spring:message code="tracker.b6" text="defaul text"></spring:message></label>
+                        <label for="inputEmail4"><spring:message code="tracker.b8" text="defaul text"></spring:message></label>
                           <input class="form-control" type="text"  class="form-control" name="tracker_builder" id="tracker_builder"
                           value="${dto.tracker_builder}">
                       </div>
                  		
                      <div class="form-group col-md-6">
-                        <label for="inputEmail4"><spring:message code="tracker.b7" text="defaul text"></spring:message></label>
+                        <label for="inputEmail4"><spring:message code="tracker.b4" text="defaul text"></spring:message></label>
                           <input class="form-control" type="text" name="tracker_manager" id="tracker_manager"
                           value="${dto.tracker_manager}">
                       </div>
     				   
     				       <div class="form-group col-md-6">
-                        <label for="inputEmail4"><spring:message code="tracker.b9" text="defaul text"></spring:message></label>
+                        <label for="inputEmail4"><spring:message code="tracker.b7" text="defaul text"></spring:message></label>
                           <input class="form-control" type="text"  name="tracker_owner" id="tracker_owner" 
                           value="${dto.tracker_owner}">
                       </div>

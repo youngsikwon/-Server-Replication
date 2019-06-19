@@ -8,9 +8,9 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/dudtlr?serverTimezone=UTC"></property>
-		<property name="username" value="wondnjs"></property>
-		<property name="password" value="wondnjs1@"></property>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/scms_db?serverTimezone=UTC"></property>
+		<property name="username" value="scms"></property>
+		<property name="password" value="scts0621!!"></property>
 		</bean>
 	<!-- 아파치 DBCP 설정 -->
 	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
