@@ -120,39 +120,91 @@
          <div class="row top_tiles" style="">
        <div class="animated flipInY col-xs-6 col-sm-1 col-lg-6">
                 <div class="tile-stats">
-                    <span class="count_top"><h4><i class="fa fa-home"   style="margin-top: 10px; margin-left: 20px;">&nbsp;<spring:message code="part.A1" text="default text"></spring:message></i></h4></span>
+                    <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-home"   style="margin-top: 10px; margin-left: 20px;">&nbsp;<spring:message code="part.A1" text="default text"></spring:message></i></h3></span>
                    <div class="count black" style="margin-top: 5px;" align="center" >${dto.t_group_name}</div>
                 </div>
               </div>  
+              
               <div class="animated flipInY col-xs-6 col-sm-1 col-lg-6">
                 <div class="tile-stats" >
-                    <span class="count_top"><h4><i class="fa fa-user" style="margin-top: 10px; margin-left: 20px;">&nbsp;<spring:message code="part.A2" text="default text"></spring:message></i></h4></span> 
+                    <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-user" style="margin-top: 10px; margin-left: 20px;">&nbsp;<spring:message code="part.A2" text="default text"></spring:message></i></h3></span> 
                   <div class="count black" style="margin-top: 5px;" align="center">${dto.t_group_manager}</div>
                 </div>
               </div>
 
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats" >							<!-- 금일 발전량 -->
-                  <span class="count_top"><h4><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 20px;"> &nbsp;</i><spring:message code="part.A3" text="default text"></spring:message></h4></span>
-                  <div class="count " style="color: #07f;" align="center">${inverter_today.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 101동  트래커-->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px; font-family: "> &nbsp;</i>[<spring:message code="part.A-2" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${BB_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px; font-family: "> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${B_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
               </div>
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 104동 트래커 2번 -->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-3" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${CC_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${C_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+              
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 106동 트래커 4번 -->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-4" text="default text"></spring:message>]&nbsp;&nbsp;현재 출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${DD_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${D_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+              
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 107동 트래커 5번 -->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-5" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${EE_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${E_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 108동  트래커 1번-->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-1" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${AA_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${A_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+              
+              
+              
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 109동 -->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-6" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${BB_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${F_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+              
+             <%--  <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats" >             <!-- 전일발전량 --> 
                   <span class="count_top"><h4><i class="fa fa-line-chart"  style="margin-top: 10px; margin-left: 20px;">&nbsp;</i><spring:message code="part.A4" text="default text"></spring:message></h4></span>
                   <div class="count" style="color: #07f;" align="center">${inverter_date.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
-              </div>
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              </div> --%>
+              
+              <div class="animated flipInY col-lg-6 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats" >							 <!-- 현재 출력 -->	
-                   <span class="count_top"><h4><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 20px;">&nbsp;</i><spring:message code="part.A5" text="default text"></spring:message></h4></span>
+                   <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;">&nbsp;</i><spring:message code="part.A5" text="default text"></spring:message></h3></span>
                   <div class="count" style="color: #07f;" align="center">${total_data.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
               </div>
               
-                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="animated flipInY col-lg-6 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats" >								<!-- 총 누적 발전량 -->
-                   <span class="count_top"><h4><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 20px;">&nbsp;</i><spring:message code="part.A6" text="default text"></spring:message></h4></span>
+                   <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;">&nbsp;</i><spring:message code="part.A6" text="default text"></spring:message></h3></span>
                  <div class="count" style="font-weight: 900; color: red;"  align="center">${Cumulative_power_generation.inverter_data_accu_energy}<h4 style="color: white-space; font-weight: 900;">KWh</h4></div>
                 </div>				
               </div>
@@ -303,102 +355,6 @@
             
              <div class="clearfix"></div>
               <br />
-              <div class="container">
-  	 <div class="row">
-            	<!-- 날씨 정보 끝  -->
-				<!-- 센서 데이터 -->
-				          <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right: 20px; padding-left: 20px;">
-                 <div class="x_panel">
-                    <h2 style="font-size: 7mm; font-weight: bolder; margin-bottom: 10px;">&nbsp;<spring:message code="part.B3" text="default text"></spring:message></h2>
-                      <div class="x_title">
-                  </div>
-                  	       <div class="col-sm-1" style="margin-top: 20px;">
-                  <label for="list-types">트래커 아이디</label><br />
-                <div class="select-wrap">
-                  <span class="icon icon-arrow_drop_down"></span>
-                  <select name="list-types" id="sel_TID" class="form-control d-block rounded-0">
-                    <option value="">${tracker.tracker_id}</option>
-                  </select>
-                </div>
-                </div>
-              
-                <div class="col-sm-1" style="margin-top: 20px;">
-				<button type="button"  class="btn btn-info btn-sm left_col" data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top: 25px;">트래커 제어버튼</button>
-                  </div>
-                  
-                  <div class="col-sm-2" id="btn_group" style="margin-left: 150px; margin-top: 20px;">
-										<fieldset>
-												<input type="button" id="btn1" class="btn btn-primary" value="윈드모드 &nbsp;ON" onclick="doSend(${tracker.t_group_id}+',WIND  ON')"style="padding-left: 14px;" ><br />
-												<input type="button" id="btn2" class="btn btn-primary" value="윈드모드 OFF" onclick="doSend(${tracker.t_group_id}+',WIND  OFF')" >
-												<input type="checkbox" class="hide"/>
-										</fieldset> 
-									</div>
-                  <div class="col-sm-2" style="margin-top: 20px;">
-										<fieldset id="1">
-												<input type="button" class="btn btn-primary"  value="스노우모드 &nbsp;ON" onclick="doSend(${tracker.t_group_id}+',SNOW  ON')"style="padding-left: 17px;" ><br />
-												<input type="button" class="btn btn-primary "  value="스노우모드 &nbsp;OFF" onclick="doSend(${tracker.t_group_id}+',SNOW  OFF')" >
-												<input type="checkbox" class="hide"/>
-										</fieldset>
-									</div>
-                  <div class="col-sm-2" style="margin-top: 20px;">
-										<fieldset id="">
-												<input type="button" class="btn btn-primary" value="그림자모드  &nbsp;ON"    onclick="doSend(${tracker.t_group_id}+',Shdow ON')" style="padding-left: 14px;"><br />
-												<input type="button" class="btn btn-primary" value="그림자모드 OFF"   onclick="doSend(${tracker.t_group_id}+',Shdow  OFF')"   >
-												<input type="checkbox" class="hide"/>
-										</fieldset>
-									</div>
-                  
-                  <div class="col-sm-2" style="margin-top: 20px;">
-										<fieldset id="1">
-											<input type="button" id="" class="btn btn-primary" value="야간모드 &nbsp;ON" onclick="doSend(${tracker.t_group_id}+',Night  ON')"style="padding-left: 14px;" ><br />
-											<input type="button" id="" class="btn btn-primary " value="야간모드 OFF" onclick="doSend(${tracker.t_group_id}+',Night  OFF')" >
-											<input type="checkbox" class="hide"/>
-										</fieldset>
-									</div>
-
-
-                  <div class="x_content">
-                  
-                  	
-				    <div class="modal fade bs-example-modal-sm" tabindex="-3" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-sm">
-                      <div class="modal-content">
-                      	
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-                          </button>
-                          <h4 class="modal-title" id="myModalLabel2">원하시는 방향을 눌러주세요.</h4>
-                        </div> 
-                   
-                        <div class="modal-footer">
-                        <button id="btn_left"   class="btn btn-primary" type="button"   style="margin-top: 23px; margin-right: 40px;"onclick="doSend(${tracker.t_group_id} + ',' + ${tracker.tracker_id}+',1 : Left')">좌향</button>
-               		<button  id="btn_right" class="btn btn-primary" type="button" style="margin-top: 23px; margin-right: 40px;" onclick="doSend(${tracker.t_group_id} + ',' + ${tracker.tracker_id}+', 2 : Right')">우향</button>
-               		<button id="btn_right"  class="btn btn-primary" type="button"  style="margin-top: 23px;"  onclick="doSend(${tracker.t_group_id} + ',' +${tracker.tracker_id}+', 0 : Stop')">정지</button><br />
-                        <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-top: 20px;" >Close</button>
-                        </div>
-                      </div><!-- 1 --> 
-                    </div><!-- 2 -->
-                  </div><!-- 3 -->
-                  <!--  모달 아이디 끝. -->
-
-                  </div>
-                </div>
-              </div>
-              <!-- 스크립트 -->
-                          				<script>
-                          $(document).ready(function(){
-                            $("#hide").click(function(){
-                              $("p").hide();
-                            });
-                            $("#show").click(function(){
-                              $("p").show();
-                            });
-                          });
-                          </script>
-
-              <!-- 스크립트 -->
-              </div>
-              </div>
              <div class="clearfix"></div>
               <br />
               <div class="container">
@@ -533,7 +489,7 @@
 	<script>
        setTimeout(function(){
            location.reload();
-       },900000); // 3000 milliseconds means 3 seconds.
+       },500000); // 3000 milliseconds means 3 seconds.
     </script>
 	
 	<!-- script -->

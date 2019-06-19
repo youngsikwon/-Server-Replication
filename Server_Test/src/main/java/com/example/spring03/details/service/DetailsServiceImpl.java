@@ -101,11 +101,73 @@ public class DetailsServiceImpl implements DetailsService {
 	public DetailsDTO User_Details(String user_id) {
 		return DetailsDao.User_Details(user_id);
 	}
-
 	@Override
 	public DetailsDTO Addr(String t_group_id) {
 		// TODO Auto-generated method stub
 		return DetailsDao.Addr(t_group_id);
+	}
+
+	/********************가로수 마을 누적 발전량*/
+	@Override
+	public DetailsDTO A_dong(String t_group_id) {
+		return DetailsDao.A_dong(t_group_id);
+	}
+
+	@Override
+	public DetailsDTO B_dong(String t_group_id) {
+		// TODO Auto-generated method stub
+		return DetailsDao.B_dong(t_group_id);
+	}
+
+	@Override
+	public DetailsDTO C_dong(String t_group_id) {
+		return DetailsDao.C_dong(t_group_id);
+	}
+
+	@Override
+	public DetailsDTO D_dong(String t_group_id) {
+		return DetailsDao.D_dong(t_group_id);
+	}
+
+	@Override
+	public DetailsDTO E_dong(String t_group_id) {
+		return DetailsDao.E_dong(t_group_id);
+	}
+
+	@Override
+	public DetailsDTO F_dong(String t_group_id) {
+		return DetailsDao.F_dong(t_group_id);
+	}
+	/********************가로수 마을 누적 발전량*/
+	@Override
+	public DetailsDTO AA_dong(String t_group_id) {
+		return DetailsDao.AA_dong(t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO BB_dong(String t_group_id) {
+		// TODO Auto-generated method stub
+		return DetailsDao.BB_dong(t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO CC_dong(String t_group_id) {
+		return DetailsDao.CC_dong(t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO DD_dong(String t_group_id) {
+		return DetailsDao.DD_dong(t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO EE_dong(String t_group_id) {
+		return DetailsDao.EE_dong(t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO FF_dong(String t_group_id) {
+		return DetailsDao.FF_dong(t_group_id);
 	}
 
 }

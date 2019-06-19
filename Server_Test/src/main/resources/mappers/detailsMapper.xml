@@ -84,7 +84,7 @@ where Inverter_Data_date >= DATE_SUB(CURDATE(), INTERVAL 1 DAY)
 and 
 Inverter_Data_date < CURDATE()
 and
-t_group_id = 1
+t_group_id = #{t_group_id}
 ]]>
 	</select>
 	
@@ -116,23 +116,11 @@ t_group_id = #{t_group_id}
 		where a.t_group_id =
 		#{t_group_id}
 	</select>
-	<!-- 구글 차트 그래프 -->
-	<select id="googleChart"
-		resultType="com.example.spring03.details.dto.DetailsDTO">
-		select
-		a.t_group_id,
-		b.inverter_data_accu_energy
-		from t_group as a
-		inner join inverter_data as b
-		on
-		a.t_group_id = b.inverter_data_idx
-		where a.t_group_id =#{t_group_id}
-	</select>
 	
 	<!--누적, 현재발전량을 나타내는 쿼리입니다. -->
 	<select id="total_data1" resultType="com.example.spring03.details.dto.DetailsDTO">
 	select 
-sum(format(inverter_data_accu_energy,2)) as inverter_data_accu_energy  ,
+sum(format(inverter_data_accu_energy,2)) as inverter_data_accu_energy,
 sum(format(inverter_data_output, 2)) as inverter_data_output
 from inverter_data
 where t_group_id = #{t_group_id}
@@ -159,12 +147,6 @@ where t_group_id = #{t_group_id}
 	select t_group_id from t_group
 where t_group_id = #{t_group_id}
 	</select>
-	
-	
-	
-	
-	
-	
 	
 	
 	<!-- 유저 정보 들어갑니다. -->
@@ -194,9 +176,98 @@ where t_group_id = #{t_group_id}
 		select t_group_addr, t_group_addr2 from t_group
 		where
 		t_group_id = #{t_group_id}
-
 	</select>
 	
+	
+	<!-- 가로수 마을 108동  -->
+	<select id="A_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select
+ifnull(sum(Inverter_Data_Accu_Energy),0) as Inverter_Data_Accu_Energy
+from inverter_data
+where Inverter_Data_ID = 1
+
+	</select>
+	<!-- 가로수 마을  101동 -->
+	<select id="B_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select
+ifnull(sum(Inverter_Data_Accu_Energy),0) as Inverter_Data_Accu_Energy
+from inverter_data
+where Inverter_Data_ID = 2
+
+	</select>
+	<!-- 가로수 마을  104동 -->
+	<select id="C_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select
+ifnull(sum(Inverter_Data_Accu_Energy),0) as Inverter_Data_Accu_Energy
+from inverter_data
+where Inverter_Data_ID = 3
+
+	</select>
+	<!-- 가로수 마을  106동 -->
+	<select id="D_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select
+ifnull(sum(Inverter_Data_Accu_Energy),0) as Inverter_Data_Accu_Energy
+from inverter_data
+where Inverter_Data_ID = 4
+	</select>
+	<!-- 가로수 마을  107동 -->
+	<select id="E_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select
+ifnull(sum(Inverter_Data_Accu_Energy),0) as Inverter_Data_Accu_Energy
+from inverter_data
+where Inverter_Data_ID = 5
+	</select>
+	<!-- 가로수 마을  109동 -->
+	<select id="F_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+	select
+ifnull(sum(Inverter_Data_Accu_Energy),0) as Inverter_Data_Accu_Energy
+from inverter_data
+where Inverter_Data_ID = 6
+	</select>
+	<!--  누적 발전량 완료 -->
+	<!--  현재 발전량 완료 -->
+		<select id="AA_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+select 
+ifnull(sum(inverter_data_output),0) as inverter_data_output
+from inverter_data
+where Inverter_Data_date > DATE_ADD(now(), INTERVAL -5 minute) 
+and Inverter_Data_ID = 1
+	</select>
+		<select id="BB_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+select 
+ifnull(sum(inverter_data_output),0) as inverter_data_output
+from inverter_data
+where Inverter_Data_date > DATE_ADD(now(), INTERVAL -5 minute) 
+and Inverter_Data_ID = 2
+	</select>
+		<select id="CC_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+select 
+ifnull(sum(inverter_data_output),0) as inverter_data_output
+from inverter_data
+where Inverter_Data_date > DATE_ADD(now(), INTERVAL -5 minute) 
+and Inverter_Data_ID = 3
+	</select>
+		<select id="DD_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+select 
+ifnull(sum(inverter_data_output),0) as inverter_data_output
+from inverter_data
+where Inverter_Data_date > DATE_ADD(now(), INTERVAL -5 minute) 
+and Inverter_Data_ID = 4
+	</select>
+		<select id="EE_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+select 
+ifnull(sum(inverter_data_output),0) as inverter_data_output
+from inverter_data
+where Inverter_Data_date > DATE_ADD(now(), INTERVAL -5 minute) 
+and Inverter_Data_ID = 5
+	</select>
+		<select id="FF_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
+select 
+ifnull(sum(inverter_data_output),0) as inverter_data_output
+from inverter_data
+where Inverter_Data_date > DATE_ADD(now(), INTERVAL -5 minute) 
+and Inverter_Data_ID = 6
+	</select>
 	
 	
 	

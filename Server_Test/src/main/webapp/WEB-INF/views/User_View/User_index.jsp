@@ -1,3 +1,4 @@
+<%@page import="java.net.InetAddress"%>
 <%@page import="java.security.acl.Group"%>
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -78,7 +79,7 @@
 	</c:when>
 	<c:otherwise>
 		${sessionScope.user_name}님
-		<a type="button" class="" href="${path}/User_auth/logout.do">로그아웃</a>
+		<a type="button" class="" href="${path}/auth/logout.do">로그아웃</a>
 	</c:otherwise>
 </c:choose></h2>
               </div>
@@ -92,13 +93,13 @@
               <div class="menu_section">
 			 <div class="clearfix"></div>
                 <ul class="nav side-menu">
-                                    <li><a href="${path}/User_View/User_index?t_group_id=2"><i class="fa fa-home"></i><h4><spring:message code="part.H1" text="default text"></spring:message></h4></a>
+                                    <li><a href="${path}/User_View/User_index?t_group_id=1"><i class="fa fa-home"></i><h4><spring:message code="part.H1" text="default text" ></spring:message></h4></a>
                   </li>
                   
   					 <li><a><i class="fa fa-table"></i> <h4><spring:message code="part.H2" text="default text"></spring:message></h4> <span class="fa fa-chevron-down"></span></a>
   					 
-                     <ul class="nav child_menu">
-                      <li><a href="${path}/User_groupBoard/Group_Board"><h4><spring:message code="part.H7" text="default text"></spring:message></h4></a></li>
+                    <ul class="nav child_menu">
+                  <li><a href="${path}/User_groupBoard/Group_Board"><h4><spring:message code="part.H7" text="default text"></spring:message></h4></a></li>
                       <li><a href="${path}/User_trackerBoard/Tracker_Board"><h4><spring:message code="part.H8" text="default text"></spring:message></h4></a></li>
                       <li><a href="${path}/User_inverterBoard/Inverter_Board"><h4><spring:message code="part.H9" text="default text"></spring:message></h4></a></li>
                     </ul>
@@ -112,45 +113,97 @@
 
         
 
-        <!-- page content -->
+    <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
          <div class="row top_tiles" style="">
        <div class="animated flipInY col-xs-6 col-sm-1 col-lg-6">
                 <div class="tile-stats">
-                    <span class="count_top"><h4><i class="fa fa-home"   style="margin-top: 10px; margin-left: 20px;">&nbsp;<spring:message code="part.A1" text="default text"></spring:message></i></h4></span>
+                    <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-home"   style="margin-top: 10px; margin-left: 20px;">&nbsp;<spring:message code="part.A1" text="default text"></spring:message></i></h3></span>
                    <div class="count black" style="margin-top: 5px;" align="center" >${dto.t_group_name}</div>
                 </div>
               </div>  
+              
               <div class="animated flipInY col-xs-6 col-sm-1 col-lg-6">
                 <div class="tile-stats" >
-                    <span class="count_top"><h4><i class="fa fa-user" style="margin-top: 10px; margin-left: 20px;">&nbsp;<spring:message code="part.A2" text="default text"></spring:message></i></h4></span> 
+                    <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-user" style="margin-top: 10px; margin-left: 20px;">&nbsp;<spring:message code="part.A2" text="default text"></spring:message></i></h3></span> 
                   <div class="count black" style="margin-top: 5px;" align="center">${dto.t_group_manager}</div>
                 </div>
               </div>
 
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats" >							<!-- 금일 발전량 -->
-                  <span class="count_top"><h4><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 20px;"> &nbsp;</i><spring:message code="part.A3" text="default text"></spring:message></h4></span>
-                  <div class="count " style="color: #07f;" align="center">${inverter_today.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 101동  트래커-->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px; font-family: "> &nbsp;</i>[<spring:message code="part.A-2" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${BB_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px; font-family: "> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${B_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
               </div>
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 104동 트래커 2번 -->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-3" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${CC_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${C_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+              
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 106동 트래커 4번 -->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-4" text="default text"></spring:message>]&nbsp;&nbsp;현재 출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${DD_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${D_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+              
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 107동 트래커 5번 -->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-5" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${EE_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${E_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 108동  트래커 1번-->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-1" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${AA_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${A_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+              
+              
+              
+              <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats" >							<!-- 109동 -->
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-6" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${BB_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>총 누적 발전량</h3></span>
+                  <div class="count " style="color: #07f;" align="center">${F_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
+                </div>
+              </div>
+              
+             <%--  <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats" >             <!-- 전일발전량 --> 
                   <span class="count_top"><h4><i class="fa fa-line-chart"  style="margin-top: 10px; margin-left: 20px;">&nbsp;</i><spring:message code="part.A4" text="default text"></spring:message></h4></span>
                   <div class="count" style="color: #07f;" align="center">${inverter_date.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
-              </div>
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              </div> --%>
+              
+              <div class="animated flipInY col-lg-6 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats" >							 <!-- 현재 출력 -->	
-                   <span class="count_top"><h4><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 20px;">&nbsp;</i><spring:message code="part.A5" text="default text"></spring:message></h4></span>
+                   <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;">&nbsp;</i><spring:message code="part.A5" text="default text"></spring:message></h3></span>
                   <div class="count" style="color: #07f;" align="center">${total_data.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
               </div>
               
-                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="animated flipInY col-lg-6 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats" >								<!-- 총 누적 발전량 -->
-                   <span class="count_top"><h4><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 20px;">&nbsp;</i><spring:message code="part.A6" text="default text"></spring:message></h4></span>
+                   <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;">&nbsp;</i><spring:message code="part.A6" text="default text"></spring:message></h3></span>
                  <div class="count" style="font-weight: 900; color: red;"  align="center">${Cumulative_power_generation.inverter_data_accu_energy}<h4 style="color: white-space; font-weight: 900;">KWh</h4></div>
                 </div>				
               </div>
@@ -159,13 +212,15 @@
 
 
 
-
           <div class="row">
 				<!-- 센서 데이터 -->
 				          <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="x_panel fixed_height_320" >
-                  <div class="x_title">
-                    <h2 style="font-size: 7mm; font-weight: bolder;"><spring:message code="part.B1" text="default text"></spring:message></h2>
+              <div class="x_panel fixed_height_320" style="height: 337px;">
+                  <div class="x_title" style="height: 76px; margin-top: 7px;">
+                  	
+                    <h2 style="font-size: 7mm; font-weight: bolder;">
+                    <img src="${path}/image/h003.png">
+                    <spring:message code="part.B1" text="default text"></spring:message></h2>
            
                     <div class="clearfix"></div>
                   </div>
@@ -186,25 +241,25 @@
                             <td>
                               <p style="width: 150px;"><i class="fa fa-square blue"></i>모듈온도 </p>
                             </td>
-                            <td align="left">${sensor_date.sensor_data_module_temp}℃</td>
+                            <td align="left">${sensor_date.sensor_data_module_temp}&nbsp;℃</td>
                           </tr>
                           <tr>
                             <td>
                               <p><i class="fa fa-square green" ></i>대기온도 </p>
                             </td>
-                            <td> ${sensor_date.sensor_data_ambient_temp}℃</td>
+                            <td> ${sensor_date.sensor_data_ambient_temp}&nbsp;℃</td>
                           </tr>
                           <tr>
                             <td>
                               <p><i class="fa fa-square purple"></i>수평일사량 </p>
                             </td>
-                            <td> ${sensor_date.sensor_data_horizontal_idt}w/m2</td>
+                            <td> ${sensor_date.sensor_data_horizontal_idt}&nbsp;w/m2</td>
                           </tr>
                           <tr>
                             <td>
                               <p><i class="fa fa-square aero"></i>수직일사량 </p>
                             </td> 
-                            <td>${sensor_date.sensor_data_slope_idt}w/m2</td>
+                            <td>${sensor_date.sensor_data_slope_idt}&nbsp;w/m2</td>
                           </tr>
        
                     
@@ -222,7 +277,9 @@
             <div class="col-md-8 col-sm-6 col-xs-12">
             <div class="x_panel">
                     <div class="x_title">
-                      <h2 style="font-size: 7mm; font-weight: bolder; margin-bottom: 15px;">&nbsp;<spring:message code="part.B2" text="default text"></spring:message></h2>
+                                          <h2 style="font-size: 7mm; font-weight: bolder; margin-bottom: 15px;">&nbsp;
+                                          <img src="${path}/image/h004.png">
+                                          <spring:message code="part.B2" text="default text"></spring:message></h2>
                     
                       <div class="clearfix"></div>
                     </div>
@@ -241,8 +298,8 @@
                         </div>
                         <div class="col-sm-6">
                           <div class="weather-text" >
-                            <h3 style="font-weight:bolder; margin-left: 100px;">${weather.area_sity}<br>
-                            <br/><i style="font-weight:bolder;">${weather.area_addr}</i></h3>
+                           <h3 style="font-weight:bolder; margin-left: 100px;">${GROUP_ADDR.t_group_addr}<br>
+                            <br/><i style="font-weight:bolder;">${GROUP_ADDR.t_group_addr2}</i></h3>
                           </div> 
                         </div> 
                       </div>
@@ -273,13 +330,13 @@
                           <div class="daily-weather">
                         <div class="col-sm-2">
                             <h2 class="day">미세먼지</h2>
-                            <h3 align="center">${weather.weather_ultrafinedust_concentration}㎍/m³</h3>
+                            <h3 align="center">${weather.weather_finedust_concentration}㎍/m³</h3>
                           </div>
                         </div>
                           <div class="daily-weather">
                        <div class="col-sm-2">
                             <h2 class="day">초미세먼지</h2>
-                            <h3 align="center">${weahter.weather_finedust_concentration}㎍/m³</h3>
+                            <h3 align="center">${weather.weather_ultrafinedust_concentration}㎍/m³</h3>
                           </div>
                         </div>
                            <div class="col-sm-2">
@@ -302,7 +359,7 @@
   	 <div class="row">
             	<!-- 날씨 정보 끝  -->
 				<!-- 센서 데이터 -->
-				          <div class="col-md-12 col-sm-15 col-xs-15">
+				          <div class="col-md-12 col-sm-12 col-xs-12" style="padding-right: 20px; padding-left: 20px;">
                  <div class="x_panel">
                  <h2 style="font-size: 7mm; font-weight: bolder; margin-bottom: 10px;">&nbsp;<spring:message code="part.B4" text="default text"></spring:message></h2>
                   <div class="x_title">
@@ -355,7 +412,78 @@
       </div><!-- 메인  -->
 
 	<!-- 현재 시간을 나타내는 Script -->
+	<script>
+		function printTime() {
 
+			var clock = document.getElementById("clock"); // 출력할 장소 선택
+			var now = new Date(); // 현재시간
+			var nowTime =  (now.getMonth() + 1)	+ "월 " + now.getDate() + "일 &nbsp;" + now.getHours() + "시" + now.getMinutes() + "분 " + now.getSeconds() + "초";
+			clock.innerHTML = nowTime; // 현재시간을 출력
+			setTimeout("printTime()", 1000); // setTimeout(“실행할함수”,시간) 시간은1초의 경우 1000
+		}
+		window.onload = function() { // 페이지가 로딩되면 실행
+			printTime();
+		} 
+		
+		
+		//트래커 제어하기
+		var server_ExtIP = "<%=request.getServerName()%>";
+		var server_IntIP = "<%=InetAddress.getLocalHost().getHostAddress()%>";
+		var addr = server_ExtIP == "localhost" ? server_IntIP + ":5100" : server_ExtIP + ":5100";
+		
+		var Uri = "ws://" + addr;
+		
+		var output;
+
+		function init() {
+		
+			output = document.getElementById("output");
+			init_WebSocket();
+		}
+		
+		function init_WebSocket() {
+			webSocket = new WebSocket(Uri);
+			
+			webSocket.onopen = function(event) {
+				onOpen(event);
+			}
+			
+			webSocket.onmessage = function(event) {
+				onMessage(event);
+			}	
+		}
+		function onOpen(evt) {
+			/* writeToScreen(addr + " 트래커 서버에 연결되었습니다."); */
+			//doSend("Test Message");
+		}
+		function onClose(evt) {
+			/* writeToScreen("연결해제"); */
+		}
+		
+		function onMessage(evt) {
+			/* writeToScreen('<span style="color: blue;"> 수신 : ' + evt.data + '</span>'); */
+			//webSocket.close();
+		}
+		
+		function onError(evt) {
+			/* writeToScreen('<span style="color: red;">에러:</span> ' + evt.data); */
+
+		}
+		//여기
+		function doSend(message) {
+			/*  writeToScreen("발신  : " + message);  */
+			webSocket.send(message);
+		}
+		//여기
+		 /* function writeToScreen(message) {
+			var pre = document.createElement("p");
+			pre.style.wordWrap = "break-word";
+			pre.innerHTML = message;
+			output.appendChild(pre);
+		}  */
+		
+		window.addEventListener("load",init, false);
+	</script>
 	<script>
        setTimeout(function(){
            location.reload();

@@ -5,6 +5,26 @@ import java.util.List;
 import com.example.spring03.details.dto.DetailsDTO;
 
 public interface DetailsService {
+	
+	/*@ 가로수 마을 
+	 *@ 누적발전량 / 현재출력
+	 */
+	public DetailsDTO A_dong(String t_group_id); //108동
+	public DetailsDTO B_dong(String t_group_id); //101동
+	public DetailsDTO C_dong(String t_group_id); //104동
+	public DetailsDTO D_dong(String t_group_id); //106동
+	public DetailsDTO E_dong(String t_group_id); //107동
+	public DetailsDTO F_dong(String t_group_id); //109동
+	///////////////////////////////////////////////////////////
+	/*g현재출력*/
+	public DetailsDTO AA_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO BB_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO CC_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO DD_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO EE_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO FF_dong(String t_group_id); //상세보기 + 발정량	
+	
+	///////////////////////////////////////////////////////////
 
 public List<DetailsDTO> listDetails();
 	

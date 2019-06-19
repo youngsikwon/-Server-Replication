@@ -6,12 +6,18 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.jfree.chart.JFreeChart;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.example.spring03.controller.DetailsController;
 import com.example.spring03.details.dto.DetailsDTO;
 
 @Repository
 public class DetailsDAOImpl implements DetailsDAO {
+	
+	
+	private Logger logger = LoggerFactory.getLogger(DetailsDAOImpl.class);
 	
 	@Inject
 	SqlSession sqlSession;
@@ -80,7 +86,7 @@ public class DetailsDAOImpl implements DetailsDAO {
 
 	@Override
 	public DetailsDTO t_group_id(String t_group_id) {
-		// TODO Auto-generated method stub
+		logger.info("값이 무엇이 나올까?"+ t_group_id);
 		return sqlSession.selectOne("details.group_id", t_group_id);
 	}
 
@@ -107,6 +113,65 @@ public class DetailsDAOImpl implements DetailsDAO {
 	@Override 
 	public DetailsDTO Addr(String t_group_id) {
 		return sqlSession.selectOne("details.Addr", t_group_id);
+	}
+	/*가로수 마을 누적 발전량*/
+	@Override
+	public DetailsDTO A_dong(String t_group_id) {
+		return sqlSession.selectOne("details.A_dong", t_group_id);
+	}
+
+	@Override
+	public DetailsDTO B_dong(String t_group_id) {
+		return sqlSession.selectOne("details.B_dong", t_group_id);
+	}
+
+	@Override
+	public DetailsDTO C_dong(String t_group_id) {
+		return sqlSession.selectOne("details.C_dong", t_group_id);
+	}
+
+	@Override
+	public DetailsDTO D_dong(String t_group_id) {
+		return sqlSession.selectOne("details.D_dong", t_group_id);
+	}
+
+	@Override
+	public DetailsDTO E_dong(String t_group_id) {
+		return sqlSession.selectOne("details.E_dong", t_group_id);
+	}
+
+	@Override
+	public DetailsDTO F_dong(String t_group_id) {
+		return sqlSession.selectOne("details.F_dong", t_group_id);
+	}
+	@Override
+	public DetailsDTO AA_dong(String t_group_id) {
+		return sqlSession.selectOne("details.AA_dong", t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO BB_dong(String t_group_id) {
+		return sqlSession.selectOne("details.BB_dong", t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO CC_dong(String t_group_id) {
+		return sqlSession.selectOne("details.CC_dong", t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO DD_dong(String t_group_id) {
+		return sqlSession.selectOne("details.DD_dong", t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO EE_dong(String t_group_id) {
+		return sqlSession.selectOne("details.EE_dong", t_group_id);
+	}
+	
+	@Override
+	public DetailsDTO FF_dong(String t_group_id) {
+		return sqlSession.selectOne("details.FF_dong", t_group_id);
 	}
 	
 

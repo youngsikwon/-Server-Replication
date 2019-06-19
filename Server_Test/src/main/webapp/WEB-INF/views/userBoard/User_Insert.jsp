@@ -155,11 +155,6 @@
         		   $("#user_email").focus();
         		   return false;
         	   }
-        	   if(user_birth.length == 0){
-        		   alert("생년월일을 입력하세요");
-        		   $("#user_brith").focus();
-        		   return false;
-        	   }
         	   if(signUpUserCompanyAddress.length == 0 || user_add2.length == 0){
         		   alert("주소를 입력해주세요");
         		   $("#user_addr2").focus();
@@ -267,7 +262,7 @@
                             	</div>
                             	
                             	 	<div class="form-group col-md-6">
-                            		<input class="form-control" required="required" placeholder="상세주소" name="user_addr2" id="user_addr2" type="text"  />
+                            		<input class="form-control" placeholder="상세주소" name="user_addr2" id="user_addr2" type="text"  />
                             	</div>
                             	
 										<div class="form-group col-md-6">
@@ -360,6 +355,7 @@
 		
 		//스크립트 시작할 것.
 	 </script>
+
 	 <!-- 아이디 중복 검사 -->
 	 <script type="text/javascript">
 	//아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정

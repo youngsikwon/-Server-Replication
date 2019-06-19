@@ -152,7 +152,7 @@
     						  <div class="form-group col-md-6">
       					<label style="margin-top: 4px;" for="inputEmail4"><spring:message code="inverter.a3" text="defaul text"></spring:message></label>
 						
-      					<input name="inverter_id" id="inverter_id" required="required" class="form-control"  placeholder="인버터 아이디">
+      					<input name="inverter_id" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="inverter_id" required="required" class="form-control"  placeholder="인버터 아이디">
 	    						<button type="button" class="idCheck">아이디 확인</button>
 	    						 <p class="result">
 						 		<span class="msg">아이디를 확인해주십시오.</span>
@@ -170,7 +170,7 @@
     						
                        <div class="form-group col-md-6">
       					<label for="inputEmail4" style="margin-top: 3px;"><spring:message code="inverter.a4" text="defaul text"></spring:message></label>
-      					<input name="inverter_capacity" id="inverter_capacity" class="form-control" required="required" placeholder="인버터 용량">
+      					<input name="inverter_capacity" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="inverter_capacity" class="form-control" required="required" placeholder="인버터 용량">
     						</div>
     						
                        <div class="form-group col-md-6">

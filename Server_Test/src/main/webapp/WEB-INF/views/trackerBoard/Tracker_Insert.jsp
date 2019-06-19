@@ -149,7 +149,7 @@
     						  <div class="form-group col-md-6">
       					<label for="inputEmail4"><spring:message code="tracker.a3" text="defaul text"></spring:message></label>
 						
-      					<input name="tracker_id" id="tracker_id" class="form-control" required="required"  placeholder="트래커 아이디">
+      					<input name="tracker_id" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="tracker_id" class="form-control" required="required"  placeholder="트래커 아이디">
 						<button type="button" class="idCheck">아이디 확인</button>
 						 <p class="result">
 						 		<span class="msg">아이디를 확인해주십시오.</span>
@@ -158,14 +158,14 @@
 						
 						    <div class="form-group col-md-6">
       					<label for="inputEmail4" ><spring:message code="tracker.a4" text="defaul text"></spring:message></label>
-      					<input name="tracker_model" id="tracker_model" class="form-control" required="required"  placeholder="트래커 모델">
+      					<input name="tracker_model"  id="tracker_model" class="form-control" required="required"  placeholder="트래커 모델">
     						</div>
     						
     							<div class="form-group col-md-12"></div>
     						
     					  <div class="form-group col-md-6">
       					<label for="inputEmail4" ><spring:message code="tracker.a5" text="defaul text"></spring:message></label>
-      					<input name="tracker_capacity" id="tracker_capacity" class="form-control" required="required"  placeholder="트래커 용량(kW)">
+      					<input name="tracker_capacity" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="tracker_capacity" class="form-control" required="required"  placeholder="트래커 용량(kW)">
     						</div>
     						
     				      <div class="form-group col-md-6">
@@ -190,7 +190,7 @@
     						
                         <div class="form-group col-md-6">
       					<label for="inputEmail4"><spring:message code="tracker.a7" text="defaul text"></spring:message></label>
-      					<input name="tracker_phone" id="tracker_phone" class="form-control" required="required" placeholder="010-0000-0000"   data-inputmask="'mask' : '(999) 9999-9999'">
+      					<input name="tracker_phone"  id="tracker_phone" class="form-control" required="required" placeholder="010-0000-0000"   data-inputmask="'mask' : '(999) 9999-9999'">
     						</div>
     		
     						

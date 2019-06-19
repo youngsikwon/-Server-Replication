@@ -145,7 +145,7 @@
                       
                      <div class="form-group col-md-6" id="divInputId">
       					<label for="inputEmail4"><spring:message code="group.a1" text="defatul text"></spring:message></label>
-      					<input name="t_group_id" id="t_group_id" class="form-control"  placeholder="군집아이디">
+      					<input type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" name="t_group_id" id="t_group_id" class="form-control"  placeholder="군집아이디">
       						<button type="button" class="idCheck">아이디 확인</button>
 	    						 <p class="result">
 						 		<span class="msg">아이디를 확인해주십시오.</span>

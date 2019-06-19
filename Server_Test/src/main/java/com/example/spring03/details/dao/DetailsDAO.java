@@ -10,6 +10,24 @@ import com.example.spring03.details.dto.DetailsDTO;
 public interface DetailsDAO {
 	
 	
+	/*@ 가로수 마을 
+	 *@ 누적발전량 / 현재출력
+	 */
+	public DetailsDTO A_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO B_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO C_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO D_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO E_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO F_dong(String t_group_id); //상세보기 + 발정량
+	/*g현재출력*/
+	public DetailsDTO AA_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO BB_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO CC_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO DD_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO EE_dong(String t_group_id); //상세보기 + 발정량
+	public DetailsDTO FF_dong(String t_group_id); //상세보기 + 발정량
+	
+	///////////////////////////////////////////////////////////
 	public DetailsDTO view (String t_group_id); //상세보기 + 발정량
 	public DetailsDTO group_weather (String t_group_id);// 날씨 정보
 	public DetailsDTO sensorDate (String t_group_id);// 센서데이터 정보
@@ -36,9 +54,6 @@ public interface DetailsDAO {
 	
 	///////////////////////////////////////////////////////////////
 	public List<DetailsDTO> GoogleChart(); // 구글 차트 들어갑니다.
-	
-	
-	
 	public List<DetailsDTO> listDetails();
 	//////////////////////////////////////////////////////////////////////
 	//  User 정보 입력하기
