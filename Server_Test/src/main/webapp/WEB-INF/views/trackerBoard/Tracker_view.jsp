@@ -133,7 +133,7 @@
                   <div class="form-group col-md-6">
 						 <label for="inputEmail4"><spring:message code="tracker.b0" text="defaul text"></spring:message></label>	
                           <input type="text" name="tracker_name" id="tracker_name"  class="form-control" required="required" class="form-control"
-                          	value="${dto.tracker_name}" readonly="readonly"/>
+                          	value="${dto.tracker_name}"/>
                       </div>
     						
     						

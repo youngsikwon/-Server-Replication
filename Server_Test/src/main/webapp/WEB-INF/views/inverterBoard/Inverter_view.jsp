@@ -138,7 +138,7 @@
                       <div class="form-group col-md-6">
                          <label for="inputEmail4"><spring:message code="inverter.b2" text="defaul text"></spring:message></label>
                           <input  class="form-control" type="text" name="inverter_name" id="inverter_name"
-                          value="${dto.inverter_name}" readonly="readonly"/>
+                          value="${dto.inverter_name}"/>
                       </div> 
                       
                       <div class="form-group col-md-6">

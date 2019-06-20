@@ -79,7 +79,7 @@
 	</c:when>
 	<c:otherwise>
 		${sessionScope.user_name}님
-		<a type="button" class="" href="${path}/auth/logout.do">로그아웃</a>
+		<a type="button" class="" href="${path}/User_auth/logout.do">로그아웃</a>
 	</c:otherwise>
 </c:choose></h2>
               </div>
@@ -93,13 +93,13 @@
               <div class="menu_section">
 			 <div class="clearfix"></div>
                 <ul class="nav side-menu">
-                                    <li><a href="${path}/User_View/User_index?t_group_id=1"><i class="fa fa-home"></i><h4><spring:message code="part.H1" text="default text" ></spring:message></h4></a>
+                                    <li><a href="${path}/User_View/User_index?t_group_id=400"><i class="fa fa-home"></i><h4><spring:message code="part.H1" text="default text"></spring:message></h4></a>
                   </li>
                   
   					 <li><a><i class="fa fa-table"></i> <h4><spring:message code="part.H2" text="default text"></spring:message></h4> <span class="fa fa-chevron-down"></span></a>
   					 
                     <ul class="nav child_menu">
-                  <li><a href="${path}/User_groupBoard/Group_Board"><h4><spring:message code="part.H7" text="default text"></spring:message></h4></a></li>
+                     <li><a href="${path}/User_groupBoard/Group_Board"><h4><spring:message code="part.H7" text="default text"></spring:message></h4></a></li>
                       <li><a href="${path}/User_trackerBoard/Tracker_Board"><h4><spring:message code="part.H8" text="default text"></spring:message></h4></a></li>
                       <li><a href="${path}/User_inverterBoard/Inverter_Board"><h4><spring:message code="part.H9" text="default text"></spring:message></h4></a></li>
                     </ul>
@@ -113,7 +113,7 @@
 
         
 
-    <!-- page content -->
+        <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
          <div class="row top_tiles" style="">
@@ -212,6 +212,7 @@
 
 
 
+
           <div class="row">
 				<!-- 센서 데이터 -->
 				          <div class="col-md-4 col-sm-4 col-xs-12">
@@ -239,7 +240,7 @@
                         <table class="tile_info">
                           <tr>
                             <td>
-                              <p style="width: 150px;"><i class="fa fa-square blue"></i>모듈온도 </p>
+                              <p style="width: 150px;"><i class="fa fa-square blue"></i>패널온도 </p>
                             </td>
                             <td align="left">${sensor_date.sensor_data_module_temp}&nbsp;℃</td>
                           </tr>
@@ -342,7 +343,7 @@
                            <div class="col-sm-2">
                           <div class="daily-weather">
                             <h2 class="day">오존</h2>
-                            <h3 align="center">${weather.weather_ozone_concentration}㎍/m</h3>
+                            <h3 align="center">${weather.weather_ozone_concentration}ppm</h3>
                           </div>
                         </div>
                         <div class="clearfix"></div>
@@ -487,7 +488,7 @@
 	<script>
        setTimeout(function(){
            location.reload();
-       },900000); // 3000 milliseconds means 3 seconds.
+       },500000); // 3000 milliseconds means 3 seconds.
     </script>
 	
 	<!-- script -->

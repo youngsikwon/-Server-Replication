@@ -138,11 +138,19 @@
                   
                   <form name="form1"  method="post" data-parsley-validate class="form-horizontal form-label-left">
                       
-                           <div class="form-group col-md-12">
-      					<label for="inputEmail4"><spring:message code="inverter.a1" text="defaul text"></spring:message></label>
+                           <div class="form-group col-md-6">
+      					<label for="inputEmail4"><spring:message code="inverter.a2" text="defaul text"></spring:message></label>
       				    <select class="form-control"  id="t_group_id"  name="t_group_id" >
       				    <c:forEach var="row" items="${inverter_group_choice}" varStatus="i">
-												<option value="${row.t_group_id}">${row.t_group_name}  / 군집 아이디 : (${row.t_group_id})</option>
+												<option value="${row.t_group_id}">군집 아이디 : ${row.t_group_id}</option>
+												</c:forEach>
+											</select>  
+    						</div>
+                           <div class="form-group col-md-6">
+      					<label for="inputEmail4"><spring:message code="inverter.a1" text="defaul text"></spring:message></label>
+      				    <select class="form-control"  id="inverter_name"  name="inverter_name" >
+      				    <c:forEach var="row" items="${inverter_group_choice}" varStatus="i">
+												<option value="${row.t_group_id}">군집명 : ${row.t_group_name}</option>
 												</c:forEach>
 											</select>  
     						</div>
@@ -151,8 +159,7 @@
     						
     						  <div class="form-group col-md-6">
       					<label style="margin-top: 4px;" for="inputEmail4"><spring:message code="inverter.a3" text="defaul text"></spring:message></label>
-						
-      					<input name="inverter_id" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="inverter_id" required="required" class="form-control"  placeholder="인버터 아이디">
+      					<input onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="inverter_id" name="inverter_id" required="required" class="form-control"  placeholder="인버터 아이디">
 	    						<button type="button" class="idCheck">아이디 확인</button>
 	    						 <p class="result">
 						 		<span class="msg">아이디를 확인해주십시오.</span>

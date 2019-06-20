@@ -78,14 +78,14 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <ul class="nav side-menu">
-                                      <li><a href="${path}/User_View/User_index"><i class="fa fa-home"></i><h4><spring:message code="part.H1" text="default text" ></spring:message></h4></a>
+               <ul class="nav side-menu">
+                                    <li><a href="${path}/User_View/User_index?t_group_id=400"><i class="fa fa-home"></i><h4><spring:message code="part.H1" text="default text"></spring:message></h4></a>
                   </li>
                   
   					 <li><a><i class="fa fa-table"></i> <h4><spring:message code="part.H2" text="default text"></spring:message></h4> <span class="fa fa-chevron-down"></span></a>
   					 
                     <ul class="nav child_menu">
-                      <li><a href="${path}/User_groupBoard/Group_Board"><h4><spring:message code="part.H7" text="default text"></spring:message></h4></a></li>
+                     <li><a href="${path}/User_groupBoard/Group_Board"><h4><spring:message code="part.H7" text="default text"></spring:message></h4></a></li>
                       <li><a href="${path}/User_trackerBoard/Tracker_Board"><h4><spring:message code="part.H8" text="default text"></spring:message></h4></a></li>
                       <li><a href="${path}/User_inverterBoard/Inverter_Board"><h4><spring:message code="part.H9" text="default text"></spring:message></h4></a></li>
                     </ul>
@@ -129,7 +129,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                  <h2><spring:message code="Group.AA" text="defualt text"></spring:message></h2>
+                  <h2><spring:message code="part.H7" text="defualt text"></spring:message></h2>
          			<ul class="nav navbar-nav navbar-right">
          			</ul>
                     <div class="clearfix"></div>
@@ -140,7 +140,6 @@
                     <thead>
                          <tr bgcolor="#FFFFFF" onmouseover="this.style.backgroundColor='#E1FFFF'"
                         onmouseout="this.style.backgroundColor='#FFFFFF'">
-                           <td><input type="checkbox" id="checkall" /></td>
                          <th align="center"><spring:message code="part.E1" text="default text"></spring:message></th>
                           <th align="center"><spring:message code="part.E2" text="default text"></spring:message></th>
                           <th align="center"><spring:message code="part.E3" text="default text"></spring:message></th>
@@ -157,12 +156,11 @@
                       <c:forEach var="row" items="${list}">
                          <tr bgcolor="#FFFFFF" onmouseover="this.style.backgroundColor='#E1FFFF'"
                         onmouseout="this.style.backgroundColor='#FFFFFF'">
-                          <td><input type="checkbox" name="t_group_id" value="${row.t_group_id}"></td>
                           <td align="center">${row.t_group_id}</td>
                           <td align="center">${row.t_group_name}</td>
                           <td align="center">${row.t_group_addr}</td>
-                          <td align="center">1</td>
-                          <td align="center">2</td>
+                          <td align="center">${row.tracker_cnt}</td>
+                          <td align="center">${row.inverter_cnt}</td>
                           <td align="center">${row.t_group_manager}</td>
                           <td align="center">${row.t_group_builder}</td>
                           <td align="center">${row.t_group_owner}</td>

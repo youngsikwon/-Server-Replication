@@ -46,7 +46,7 @@ public class User_authController {
 			session.setAttribute("user_pw", dto.getUser_pw());
 			session.setAttribute("user_name", name);
 			//일반 사사용자 세션 변수
-			mav.setViewName("redirect:/User_View/User_index?t_group_id="+1); 
+			mav.setViewName("redirect:/User_View/User_index?t_group_id="+400); 
 		}else {
 			mav.setViewName("/User_auth/user_Login");
 			mav.addObject("message","error");
