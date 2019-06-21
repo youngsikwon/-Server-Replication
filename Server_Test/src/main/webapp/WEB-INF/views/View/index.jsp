@@ -136,7 +136,7 @@
                 <div class="tile-stats" >							<!-- 101동  트래커-->
                   <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px; font-family: "> &nbsp;</i>[<spring:message code="part.A-2" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
                   <div class="count " style="color: #07f;" align="center">${BB_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
-                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px; font-family: "> &nbsp;</i> 누적 발전량</h3></span>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px; font-family: "> &nbsp;</i>누적 발전량</h3></span>
                   <div class="count " style="color: #07f;" align="center">${B_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
               </div>
@@ -145,7 +145,7 @@
                 <div class="tile-stats" >							<!-- 104동 트래커 2번 -->
                   <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-3" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
                   <div class="count " style="color: #07f;" align="center">${CC_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
-                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i> 누적 발전량</h3></span>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>누적 발전량</h3></span>
                   <div class="count " style="color: #07f;" align="center">${C_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
               </div>
@@ -154,7 +154,7 @@
                 <div class="tile-stats" >							<!-- 106동 트래커 4번 -->
                   <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-4" text="default text"></spring:message>]&nbsp;&nbsp;현재 출력</h3></span>
                   <div class="count " style="color: #07f;" align="center">${DD_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
-                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i> 누적 발전량</h3></span>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>누적 발전량</h3></span>
                   <div class="count " style="color: #07f;" align="center">${D_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
               </div>
@@ -163,7 +163,7 @@
                 <div class="tile-stats" >							<!-- 107동 트래커 5번 -->
                   <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-5" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
                   <div class="count " style="color: #07f;" align="center">${EE_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
-                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i> 누적 발전량</h3></span>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>누적 발전량</h3></span>
                   <div class="count " style="color: #07f;" align="center">${E_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
               </div>
@@ -172,7 +172,7 @@
                 <div class="tile-stats" >							<!-- 108동  트래커 1번-->
                   <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>[<spring:message code="part.A-1" text="default text"></spring:message>]&nbsp;&nbsp;현재출력</h3></span>
                   <div class="count " style="color: #07f;" align="center">${AA_dong.inverter_data_output}<h4 style="font-weight: 900;">KWh</h4></div>
-                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i> 누적 발전량</h3></span>
+                  <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;"> &nbsp;</i>누적 발전량</h3></span>
                   <div class="count " style="color: #07f;" align="center">${A_dong.inverter_data_accu_energy}<h4 style="font-weight: 900;">KWh</h4></div>
                 </div>
               </div>
@@ -205,7 +205,7 @@
                 <div class="animated flipInY col-lg-6 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats" >								<!-- 총 누적 발전량 -->
                    <span class="count_top"><h3 style="color:  inherit;"><i class="fa fa-line-chart" style="margin-top: 10px; margin-left: 10px;">&nbsp;</i><spring:message code="part.A6" text="default text"></spring:message></h3></span>
-                 <div class="count" style="font-weight: 900; color: red;"  align="center">${Cumulative_power_generation.inverter_data_accu_energy}<h4 style="color: white-space; font-weight: 900;">KWh</h4></div>
+                 <div class="count" style="font-weight: 900; color: red;"  align="center">${total_data.inverter_data_accu_energy}<h4 style="color: white-space; font-weight: 900;">KWh</h4></div>
                 </div>				
               </div>
           </div>
@@ -301,7 +301,7 @@
                         <div class="col-sm-6">
                           <div class="weather-text" >
                            <h3 style="font-weight:bolder; margin-left: 100px;">${GROUP_ADDR.t_group_addr}<br>
-                            <br/><i style="font-weight:bolder;">${GROUP_ADDR.t_group_addr2}</i></h3>
+                            <br/><i style="font-weight:bolder;">&nbsp;${GROUP_ADDR.t_group_addr2}</i></h3>
                           </div> 
                         </div> 
                       </div>
@@ -319,32 +319,32 @@
                           <div class="daily-weather">
                          <div class="col-sm-2">
                             <h2 class="day" style="font-weight: normal;">최저온도</h2>
-                            <h3 align="center">${weather.weather_t_min}°C</h3>
+                            <h3 align="center">${weather.weather_t_min}&nbsp;°C</h3>
                           </div>
                         </div>
                         
                           <div class="daily-weather">
                          <div class="col-sm-2">
                             <h2 class="day" style="font-weight: normal;">최고온도</h2>
-                            <h3 align="center">${weather.weather_t_max}°C</h3>
+                            <h3 align="center">${weather.weather_t_max}&nbsp;°C</h3>
                           </div>
                         </div>
                           <div class="daily-weather">
                         <div class="col-sm-2">
                             <h2 class="day">미세먼지</h2>
-                            <h3 align="center">${weather.weather_finedust_concentration}㎍/m³</h3>
+                            <h3 align="center">${weather.weather_finedust_concentration}&nbsp;㎍/m³</h3>
                           </div>
                         </div>
                           <div class="daily-weather">
                        <div class="col-sm-2">
                             <h2 class="day">초미세먼지</h2>
-                            <h3 align="center">${weather.weather_ultrafinedust_concentration}㎍/m³</h3>
+                            <h3 align="center">${weather.weather_ultrafinedust_concentration}&nbsp;㎍/m³</h3>
                           </div>
                         </div>
                            <div class="col-sm-2">
                           <div class="daily-weather">
                             <h2 class="day">오존</h2>
-                            <h3 align="center">${weather.weather_ozone_concentration}ppm</h3>
+                            <h3 align="center">${weather.weather_ozone_concentration}&nbsp;ppm</h3>
                           </div>
                         </div>
                         <div class="clearfix"></div>
@@ -406,9 +406,6 @@
               </div>
 			</div>
 	</div>
-				
-            	
- 
         </div>
         <!-- /page content -->
       </div><!-- 메인  -->

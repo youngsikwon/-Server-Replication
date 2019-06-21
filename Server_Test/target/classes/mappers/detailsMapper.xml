@@ -125,22 +125,32 @@ sum(format(inverter_data_output, 2)) as inverter_data_output
 from inverter_data
 where t_group_id = #{t_group_id}
 	</select>
-	<!--현재발전량 을 나타내는 쿼리입니다. -->
+	<!--현재 발전량과 현재출력을 나타냄.-->
 	<select id="total_data" resultType="com.example.spring03.details.dto.DetailsDTO">
-	<![CDATA[
 select 
-ifnull(CAST(sum(inverter_data_output) * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
-from inverter_data
-where Inverter_Data_date > DATE_ADD(now(), INTERVAL -15 minute)
-and Inverter_Data_ID between 1 and 6;
-]]>
+ifnull(CAST(sum(inverter_data_output) * 0.001 as DECIMAL(65,1)),0) as inverter_data_output , 
+ifnull(CAST(sum(inverter_data_accu_energy) * 0.001 as DECIMAL(65,1)),0) as inverter_data_accu_energy 
+from
+(select * from 
+(select
+t_group_id,
+inverter_data_id, 
+inverter_data_output ,
+inverter_data_accu_energy, 
+inverter_data_date
+from inverter_data where inverter_data_id between 1 and 6
+order by inverter_data_date desc limit 100) as a 
+group by t_group_id,inverter_data_id) as a 
+where t_group_id = 400;
 	</select>
 	<!-- 누적 발전량 -->
 	<select id="Cumulative_power_generation" resultType="com.example.spring03.details.dto.DetailsDTO">
 	select
 ifnull(CAST(sum(Inverter_Data_Accu_Energy) * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
 from inverter_data
-where Inverter_Data_ID between 1 and 6;
+where Inverter_Data_ID between 1 and 6
+and
+t_group_id = 400
 	</select>
 	
 	<select id="group_id" resultType="com.example.spring03.details.dto.DetailsDTO">
@@ -178,100 +188,108 @@ where t_group_id = #{t_group_id}
 		t_group_id = #{t_group_id}
 	</select>
 	
+	
+		<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->
 	<!-- 가로수 마을 108동  -->
 	<select id="A_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
-	select
-ifnull(CAST(sum(Inverter_Data_Accu_Energy) * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
+select 
+ifnull(CAST(Inverter_Data_Accu_Energy * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
 from inverter_data
-where Inverter_Data_ID = 1
+where inverter_data_id=1
+order by inverter_data_date desc limit 1;
 
 	</select>
 	<!-- 가로수 마을  101동 -->
 	<select id="B_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
-	select
-ifnull(CAST(sum(Inverter_Data_Accu_Energy) * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
+select 
+ifnull(CAST(Inverter_Data_Accu_Energy * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
 from inverter_data
-where Inverter_Data_ID = 2
+where inverter_data_id=2
+order by inverter_data_date desc limit 1;
 
 	</select>
 	<!-- 가로수 마을  104동 -->
 	<select id="C_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
-	select
-ifnull(CAST(sum(Inverter_Data_Accu_Energy) * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
+select 
+ifnull(CAST(Inverter_Data_Accu_Energy * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
 from inverter_data
-where Inverter_Data_ID = 3
+where inverter_data_id=3
+order by inverter_data_date desc limit 1;
 
 	</select>
 	<!-- 가로수 마을  106동 -->
 	<select id="D_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
-	select
-ifnull(CAST(sum(Inverter_Data_Accu_Energy) * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
+select 
+ifnull(CAST(Inverter_Data_Accu_Energy * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
 from inverter_data
-where Inverter_Data_ID = 4
+where inverter_data_id=4
+order by inverter_data_date desc limit 1;
 	</select>
 	<!-- 가로수 마을  107동 -->
 	<select id="E_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
-	select
-ifnull(CAST(sum(Inverter_Data_Accu_Energy) * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
+select 
+ifnull(CAST(Inverter_Data_Accu_Energy * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
 from inverter_data
-where Inverter_Data_ID = 5
+where inverter_data_id=5
+order by inverter_data_date desc limit 1;
 	</select>
 	<!-- 가로수 마을  109동 -->
 	<select id="F_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
-	select
-ifnull(CAST(sum(Inverter_Data_Accu_Energy) * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
+select 
+ifnull(CAST(Inverter_Data_Accu_Energy * 0.001 as DECIMAL(65,1)),0) as Inverter_Data_Accu_Energy
 from inverter_data
-where Inverter_Data_ID = 6
+where inverter_data_id=6
+order by inverter_data_date desc limit 1;
 	</select>
-	<!--  누적 발전량 완료 -->
+	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->	<!--  누적 발전량 완료 -->
 	
 	
 	
 	
-	<!--  현재 발전량 완료 -->
+	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->
 		<select id="AA_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
 select 
-ifnull(CAST(sum(inverter_data_output) * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
+ifnull(CAST(inverter_data_output * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
 from inverter_data
-where Inverter_Data_date > DATE_ADD(now(), INTERVAL -15 minute) 
-and Inverter_Data_ID = 1
+where Inverter_Data_ID = 1
+order by inverter_data_date desc limit 1
 	</select>
 		<select id="BB_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
 select 
-ifnull(CAST(sum(inverter_data_output) * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
+ifnull(CAST(inverter_data_output * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
 from inverter_data
-where Inverter_Data_date > DATE_ADD(now(), INTERVAL -15 minute) 
-and Inverter_Data_ID = 2
+where Inverter_Data_ID = 2
+order by inverter_data_date desc limit 1
 	</select>
 		<select id="CC_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
 select 
-ifnull(CAST(sum(inverter_data_output) * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
+ifnull(CAST(inverter_data_output * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
 from inverter_data
-where Inverter_Data_date > DATE_ADD(now(), INTERVAL -15 minute) 
-and Inverter_Data_ID = 3
+where Inverter_Data_ID = 3
+order by inverter_data_date desc limit 1
 	</select>
 		<select id="DD_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
 select 
-ifnull(CAST(sum(inverter_data_output) * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
+ifnull(CAST(inverter_data_output * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
 from inverter_data
-where Inverter_Data_date > DATE_ADD(now(), INTERVAL -15 minute) 
-and Inverter_Data_ID = 4
+where Inverter_Data_ID = 4
+order by inverter_data_date desc limit 1
 	</select>
 		<select id="EE_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
 select 
-ifnull(CAST(sum(inverter_data_output) * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
+ifnull(CAST(inverter_data_output * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
 from inverter_data
-where Inverter_Data_date > DATE_ADD(now(), INTERVAL -15 minute) 
-and Inverter_Data_ID = 5
+where Inverter_Data_ID = 5
+order by inverter_data_date desc limit 1
 	</select>
 		<select id="FF_dong" resultType="com.example.spring03.details.dto.DetailsDTO">
 select 
-ifnull(CAST(sum(inverter_data_output) * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
+ifnull(CAST(inverter_data_output * 0.001 as DECIMAL(65,1)),0) as inverter_data_output
 from inverter_data
-where Inverter_Data_date > DATE_ADD(now(), INTERVAL -15 minute) 
-and Inverter_Data_ID = 6
+where Inverter_Data_ID = 6
+order by inverter_data_date desc limit 1
 	</select>
-	
+	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	<!--  현재 발전량 완료 -->	
 	
 	
 </mapper>

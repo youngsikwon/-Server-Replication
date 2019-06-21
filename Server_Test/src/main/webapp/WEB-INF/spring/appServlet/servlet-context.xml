@@ -40,10 +40,10 @@
  			<mapping path="/userBoard/User_Insert"/>
  			<mapping path="/userBoard/User_Board"/>
  			<mapping path="/userBoard/User_view"/>
- 			<mapping path="/User_VIew/Details"/>
+ 			<mapping path="/User_View/User_index"/>
  			<mapping path="/User_groupBoard/Group_Board"/>
- 			<mapping path="/User_trackerBoard/Tracker_Board"/>
  			<mapping path="/User_inverterBoard/Inverter_Board"/>
+ 			<mapping path="/User_trackerBoard/Tracker_Board"/>
  			<beans:ref bean="LoginInterceptor"/>
 		</interceptor> 	
  	</interceptors>		
